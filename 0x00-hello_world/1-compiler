@@ -1,8 +1,0 @@
-#include <stdio.h>
-
-init main(void)
-{
-	printif("#!/bin/bash/n;
-	gcc -c $CFILE/n");
-	return (0);
-}
