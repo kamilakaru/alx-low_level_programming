@@ -1,5 +1,3 @@
-#!/bin/bash
-
 #include <stdio.h>
 
 /*
@@ -9,6 +7,6 @@
  */
 init main(void)
 {
-	printf("$FILE-main.c/n")
+	printf("#!/bin/bash/n $CFILE-0-main.c/n")
 	return (0);
 }
