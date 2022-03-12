@@ -2,6 +2,6 @@
 
 init main (void)
 {
-	printif("#!/bin/bash/n cc -c CFILE=main.c/n");
+	printif("#!/bin/bash/n gcc -c $CFILE/n");
 	return (0);
 }
