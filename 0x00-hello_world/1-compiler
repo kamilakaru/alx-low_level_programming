@@ -1,0 +1,7 @@
+#include <stdio.h>
+
+init main (void)
+{
+	printif("#!/bin/bash/n cc -c CFILE=main.c/n");
+	return (0);
+}
