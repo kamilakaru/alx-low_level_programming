@@ -10,7 +10,6 @@
  *
  * Return: zero
  */
-
 int main(void)
 {
 	int n;
@@ -24,6 +23,5 @@ int main(void)
 		printf("%d is negative\n", n);
 	else 
 		printf("%d is positive\n", n);
-
 	return (0);
 }
