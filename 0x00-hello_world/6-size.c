@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 /**
-  * main - computes sizes of various data types
+  * main - print the size of various type
   *
   * prints the size of various types on the computer it is compiled
   * and run on
