@@ -2,6 +2,6 @@
 
 int main(void)
 {
-	int positive_or_negative();
+	int _abs();
 	return (0);
 }
