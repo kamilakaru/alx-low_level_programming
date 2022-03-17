@@ -3,6 +3,7 @@
 /**
  * _isupper - a function that checks for uppercase characters
  * @c: variable taht stores letters
+ *
  * Return: 1 if uppercase, 0 otherwise
  */
 
