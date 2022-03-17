@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * _isupper - checks for uppercase characters
- * @c: input
+ * _isupper - a function that checks for uppercase characters
+ * @c: variable taht stores letters
  *
  * Return: 1 if its uppercase, 0 otherwise
  */
