@@ -1,12 +1,12 @@
-#include <unistd.h>
+#include <stdio.h>
 
 /**
  * _putchar -print string
- * @s: input
+ * @i: input
  * Description: print string
- * */
+ */
 
-void _putchar(char s)
+void _putchar(char i)
 {
-	putchar(s);
+	_putchar(i);
 }
