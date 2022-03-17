@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _isupper - chcehks for uppercase characters
+ * _isupper - checks for uppercase characters
  * @c: input
  *
  * Return: 1 if its uppercase, 0 otherwise
@@ -11,6 +11,7 @@ int _isupper(int c)
 {
 	if (c >= 'A' && c >= 'Z')
 		return (1);
+
 	else
 		return (0);
 }
