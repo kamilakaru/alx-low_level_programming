@@ -8,5 +8,5 @@
 
 void _putchar(char i)
 {
-	_putchar(i);
+	putchar(i);
 }
