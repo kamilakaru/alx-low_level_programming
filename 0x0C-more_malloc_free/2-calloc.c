@@ -1,16 +1,18 @@
 #include <stdlib.h>
+
 /**
- * *_memset -fills memory witha constant byte
+ * *_memset - fills memory with a constant byte.
  * @s: pointer to put the constant
  * @b: constant
- * @n: max byte to use
+ * @n: max bytes to use
  * Return: s
  */
+
 char *_memset(char *s, char b, unsigned int n)
 {
 char *ptr = s;
 
-while (n --)
+while (n--)
 	*s++ = b;
 
 return (ptr);
@@ -22,6 +24,7 @@ return (ptr);
  * @size: size of each element
  * Return: pointer
  */
+
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 void *m;
