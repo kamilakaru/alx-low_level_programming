@@ -34,20 +34,3 @@ list_t *add_node(list_t **head, const char *str)
 
 	return (*head);
 }
-/**
- * strlen - find the length of a given string
- * @str - given string
- *
- * Return: length of the string
- */
-unsigned int _strlen(const char *str)
-{
-	unsigned int length = 0;
-
-	while (*str)
-	{
-		length++;
-		str++;
-	}
-	return (length);
-}
