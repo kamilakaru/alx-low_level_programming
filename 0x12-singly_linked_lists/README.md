@@ -1,13 +1,13 @@
-#SINGLY LINKED LISTS
+# SINGLY LINKED LISTS
 
 ---
-#LEARNING OBJECTIVE
+## LEARNING OBJECTIVE
 - When and why using linked lists vs arrays
 -how to build and use linked lists
 
 ----
 
-#TASKS
+## TASKS
 0. Print list
 
 1. List length
