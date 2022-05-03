@@ -1,52 +1,87 @@
 #include "main.h"
 
+int _close(int fd);
+int _cp(char *file_from, char *file_to);
+
 /**
  * main - copies the content of a file to another file
- * @argc: number of arguments passed to the program
- * @argv: array of arguments
+ * @argc: number of commandline arguments
+ * @argv: array of commandline arguments
  *
- * Return: Always 0 (Success)
+ * Return: 0 if successful
  */
-int main(int argc, char *argv[])
+int main(int argc, char **argv)
 {
-	int fd_r, fd_w, r, a, b;
-	char buf[BUFSIZ];
-
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		dprintf(2, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	fd_r = open(argv[1], O_RDONLY);
-	if (fd_r < 0)
+
+	/* copy from file_from to file_to */
+	_cp(argv[1], argv[2]);
+
+	return (0);
+}
+
+/**
+ * _cp - copies the content of a file to another file
+ * @file_from: file to copy from
+ * @file_to: file to copy to
+ *
+ * Return: 1 if successful
+ */
+int _cp(char *file_from, char *file_to)
+{
+	int fd_r, fd_w, count;
+	char buf[1024];
+
+	fd_r = open(file_from, O_RDONLY);
+	if (fd_r == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		dprintf(2, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
-	fd_w = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
-	while ((r = read(fd_r, buf, BUFSIZ)) > 0)
+
+	fd_w = open(file_to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
+
+	/* read bytes from fd_r to fd_w*/
+	while ((count = read(fd_r, buf, 1024)) > 0)
 	{
-		if (fd_w < 0 || write(fd_w, buf, r) != r)
+		if (fd_w == -1 || write(fd_w, buf, count) != count)
 		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]);
-			close(fd_r);
+			_close(fd_r);
+			dprintf(2, "Error: Can't write to %s\n", file_to);
 			exit(99);
 		}
 	}
-	if (r < 0)
+
+	if (count == -1)
 	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
+		dprintf(2, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
-	a = close(fd_r);
-	b = close(fd_w);
-	if (a < 0 || b < 0)
+
+	/* close the files */
+	_close(fd_r);
+	_close(fd_w);
+
+	return (1);
+}
+
+/**
+ * _close - close a file given by an file descriptor
+ * @fd: file descriptor
+ *
+ * Return: 1 if successful
+ */
+int _close(int fd)
+{
+	if (close(fd) == -1)
 	{
-		if (a < 0)
-			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_r);
-		if (b < 0)
-			dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd_w);
+		dprintf(2, "Error: Can't close fd %d\n", fd);
 		exit(100);
 	}
-	return (0);
+
+	return (1);
 }
